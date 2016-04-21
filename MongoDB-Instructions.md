@@ -9,7 +9,7 @@
    
     `mongo.exe`
   
-# Commands about Database 
+## Commands about Database 
 
 1. Create Database use the command `use`
 
@@ -41,4 +41,44 @@
   **Note:** First, check the available collections into your database _mydbName_, then drop the collection with the name _mycollectionName_. Drop() method will return true, if the selected collection is dropped successfully otherwise it will return false
 
 ## Commands about Document
+
+1. Insert Document
+
+  `db.COLLECTION_NAME.insert(document)`
+
+```
+
+  db.glist.insert(
+  {	
+  	user_id: 0002,
+  	phone_num: '202222222',
+  	email: 'Emma@gmail.com',
+  	first_name: 'Emma',
+  	last_name: 'Wason',
+  	rating: 5,
+  	items: [
+  		{
+  			item_name: 'hello ketty shirt',
+  			price: 20,
+  			number_sold: 1,
+  			location: 'Washington DC',
+  			delivery_info: 'UPS'
+  		},
+  
+  		{
+  			item_name: 'hello ketty shirt',
+  			price: 20,
+  			number_sold: 1,
+  			location: 'Washington DC',
+  			delivery_info: 'UPS'
+  		}
+  	]
+	})
+	
+```
+
+2. Query Document
+3. Update Document
+4. Delete Document
+
 
