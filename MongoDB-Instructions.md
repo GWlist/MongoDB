@@ -92,7 +92,7 @@
   	`db.mycol.find({key1:value1, key2:value2}).pretty()`
 
   ```
-	  db.glist.find({"first_name":"Alison","items.item_id":1}).pretty()
+	  >db.glist.find({"first_name":"Alison","items.item_id":1}).pretty()
 	
 	{
         "_id" : ObjectId("57100107b35de450e6bc25eb"),
@@ -139,7 +139,7 @@
 	
 	```
 	
-	db.glist.find({"first_name":"Alison","items.item_id":1}).pretty()
+	>db.glist.find({"first_name":"Alison","items.item_id":1}).pretty()
 	
 	{
         "_id" : ObjectId("57100107b35de450e6bc25eb"),
@@ -176,7 +176,7 @@
 	
 	```
 	
-	db.glist.find({"items.price":{$gt:10}, $or:[{"items.location":"Washington DC"},{"items.rating":{$lt:50}}]}).pretty()
+	>db.glist.find({"items.price":{$gt:10}, $or:[{"items.location":"Washington DC"},{"items.rating":{$lt:50}}]}).pretty()
 	
 	{
         "_id" : ObjectId("570fff19b35de450e6bc25e9"),
@@ -212,7 +212,7 @@
 
   ```
   
-  db.glist.update({'user_id':2,'items.item_id':2},{$set:{'item_name':'sunglasses'}})
+  >db.glist.update({'user_id':2,'items.item_id':2},{$set:{'item_name':'sunglasses'}})
 
   WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
 
