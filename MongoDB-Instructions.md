@@ -21,6 +21,6 @@
 **Note:** Your new created database is not present in list before you insert atleast one document into it.
 4. The command `db.dropDatabase()` is used to drop a existing database
 
-*Tips:* You need to switch to the database you want to delete first by using `use` command, then use `db.dropdatabase()` command to drop the choosed _database.
+*Tips:* You need to switch to the database you want to delete first by using `use` command, then use `db.dropdatabase()` command to drop the choosed _database_.
 
 
