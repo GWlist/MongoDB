@@ -25,7 +25,7 @@
 
   *Tips:* You need to switch to the database you want to delete first by using `use` command, then use `db.dropdatabase()` command to drop the choosed database.
 
-# Commands about Collection (As for tables in RMDB)
+## Commands about Collection (As for tables in RMDB)
 
 1. MongoDB `db.createCollection(name, options)` is used to create collection.
 
@@ -77,8 +77,146 @@
 	
 ```
 
+  **Note:** To insert the document you can use `db.post.save(document`) also. If you don't specify `_id` in the document then save() method will work same as `insert()` method. If you specify `_id` then it will replace whole data of document containing _id as specified in `save()` method.
+
 2. Query Document
+  
+  1. `db.COLLECTION_NAME.find()` will display all the documents in a non structured way.
+
+  	`db.COLLECTION_NAME.find().pretty()` display the results in a formatted way.
+
+  	**Note:** Apart from find() method there is findOne() method, that returns only one document.
+  
+  2. In the find() method if you pass multiple keys by separating them by ',' then MongoDB treats it AND condition. Basic syntax of AND is shown below −
+
+  	`db.mycol.find({key1:value1, key2:value2}).pretty()`
+
+  ```
+	  db.glist.find({"first_name":"Alison","items.item_id":1}).pretty()
+	
+	{
+        "_id" : ObjectId("57100107b35de450e6bc25eb"),
+        "user_id" : 1,
+        "phone_num" : "2021111111",
+        "email" : "Alison@gmail.com",
+        "first_name" : "Alison",
+        "last_name" : "Wiliam",
+        "rating" : 11,
+        "items" : [
+                {
+                        "item_id" : 1,
+                        "item_name" : "iphone6",
+                        "price" : 720,
+                        "number_sold" : 1,
+                        "location" : "New York",
+                        "delivery_info" : "Fedfex"
+                },
+                {
+                        "item_id" : 2,
+                        "item_name" : "Nike women's shoes",
+                        "price" : 150,
+                        "number_sold" : 1,
+                        "location" : "New York",
+                        "delivery_info" : "UPS"
+                }
+        ]
+	}
+	
+  ```
+  
+  3. To query documents based on the OR condition, you need to use `$or` keyword. Basic syntax of OR is shown below −
+
+	```
+	  db.mycol.find(
+	   {
+	      $or: [
+	         {key1: value1}, {key2:value2}
+	      ]
+	   }
+	  ).pretty()
+	
+	```  
+	
+	```
+	
+	db.glist.find({"first_name":"Alison","items.item_id":1}).pretty()
+	
+	{
+        "_id" : ObjectId("57100107b35de450e6bc25eb"),
+        "user_id" : 1,
+        "phone_num" : "2021111111",
+        "email" : "Alison@gmail.com",
+        "first_name" : "Alison",
+        "last_name" : "Wiliam",
+        "rating" : 11,
+        "items" : [
+                {
+                        "item_id" : 1,
+                        "item_name" : "iphone6",
+                        "price" : 720,
+                        "number_sold" : 1,
+                        "location" : "New York",
+                        "delivery_info" : "Fedfex"
+                },
+                {
+                        "item_id" : 2,
+                        "item_name" : "Nike women's shoes",
+                        "price" : 150,
+                        "number_sold" : 1,
+                        "location" : "New York",
+                        "delivery_info" : "UPS"
+                }
+        ]
+	}
+	
+	```
+  4. Using AND and OR together
+  
+     Below given example will show the documents that have price greater than 50 and whose location is either Washington DC or New York. Equivalent sql where clause is `where price>50 and (location='Washington DC' or rating>2')`
+	
+	```
+	
+	db.glist.find({"items.price":{$gt:10}, $or:[{"items.location":"Washington DC"},{"items.rating":{$lt:50}}]}).pretty()
+	
+	{
+        "_id" : ObjectId("570fff19b35de450e6bc25e9"),
+        "user_id" : 2,
+        "phone_num" : "202222222",
+        "email" : "Emma@gmail.com",
+        "first_name" : "Emma",
+        "last_name" : "Wason",
+        "rating" : 5,
+        "items" : [
+                {
+                        "item_id" : 1,
+                        "item_name" : "hello ketty shirt",
+                        "price" : 20,
+                        "number_sold" : 1,
+                        "location" : "Washington DC",
+                        "delivery_info" : "UPS"
+                },
+                {
+                        "item_id" : 2,
+                        "item_name" : "sunglass",
+                        "price" : 50,
+                        "number_sold" : 1,
+                        "location" : "Washington DC",
+                        "delivery_info" : "UPS"
+                }
+        ]
+	}
+	```
 3. Update Document
+
+  The command `db.COLLECTION_NAME.update(SELECTIOIN_CRITERIA, UPDATED_DATA)` updates values in the existing document. 
+
+  ```
+  
+  db.glist.update({'user_id':2,'items.item_id':2},{$set:{'item_name':'sunglasses'}})
+
+  WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+
+  ```
 4. Delete Document
 
 
