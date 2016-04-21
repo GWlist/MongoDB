@@ -244,8 +244,53 @@
     
     `db.glist.remove()`
     
-  ## Projection: Selecting only necessary data
+## Projection: Selecting only necessary data
   
+1. Set list of fields with value 1 or 0. 1 is used to show the field while 0 is used to hide the field.
+  
+  `db.COLLECTION_NAME.find({},{KEY:1})`
+  
+  `db.glist.find({"first_name":1, _id:0})`
+  
+2. Limiting Records
+  
+  `db.COLLECTION_NAME.find().limit(NUMBER)`
+
+  **Note:** If you don't specify number argument in limit() method then it will display all documents from the collection.
+  
+3. Apart from limit() method there is one more method skip() which also accepts number type argument and used to skip number of documents.
+  
+  `db.COLLECTION_NAME.find().limit(NUMBER).skip(NUMBER)`
+
+  `db.glist.find({},{"email":1, _id:0}).limit(1).skip(1)` Only display second document.
+  
+4. Sortting Records
+  
+  `db.COLLECTION_NAME.find().sort({KEY:1})`
+  
+  **Note:** 1 is used for ascending order while -1 is used for descending order.Please note if you don't specify the sorting preference, then sort() method will display documents in ascending order.
+
+5. Indexing
+  
+  Create an index. Here key is the name of filed on which you want to create index and 1 is for ascending order. To create index in descending order you need to use -1.
+
+  `db.COLLECTION_NAME.ensureIndex({KEY:1})` 
+
+  `db.glist.ensureIndex({"rating:-1"})`
+  
+  In ensureIndex() method you can pass multiple fields, to create index on multiple fields.
+  
+  `db.glist.ensureIndex({"rating:-1","user_id":1})`
+  
+6. Aggregation
+
+  `db.COLLECTION_NAME.aggregate(AGGREGATE_OPERATION)`
+  
+  `db.glist.aggregate([{$group:{_id: "rating",num_rate:{$sum:1}}}])`
+
+  Sql equivalent query for the above use case will be `select rating, count(*) from glist group by rating`
+
+  [A list of available aggregation expressions](http://www.tutorialspoint.com/mongodb/mongodb_aggregation.htm)
   
   
   
