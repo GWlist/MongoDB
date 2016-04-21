@@ -19,11 +19,11 @@
 
 3. Check your databases list, then use the command `show dbs`
 
-**Note:** Your new created database is not present in list before you insert atleast one document into it.
+  **Note:** Your new created database is not present in list before you insert atleast one document into it.
 
 4. The command `db.dropDatabase()` is used to drop a existing database
 
-*Tips:* You need to switch to the database you want to delete first by using `use` command, then use `db.dropdatabase()` command to drop the choosed database.
+  *Tips:* You need to switch to the database you want to delete first by using `use` command, then use `db.dropdatabase()` command to drop the choosed database.
 
 # Commands about Collection (As for tables in RMDB)
 
@@ -34,11 +34,11 @@
 
 2. Check the created collection by using the command `show collections`
 
-**Note:** In mongodb you don't need to create collection. MongoDB creates collection automatically, when you insert some document.
+  **Note:** In mongodb you don't need to create collection. MongoDB creates collection automatically, when you insert some document.
 
 3. MongoDB's `db.COLLECTION_NAME.drop()` is used to drop a collection from the database.
 
-**Note:** First, check the available collections into your database _mydbName_, then drop the collection with the name _mycollectionName_. Drop() method will return true, if the selected collection is dropped successfully otherwise it will return false
+  **Note:** First, check the available collections into your database _mydbName_, then drop the collection with the name _mycollectionName_. Drop() method will return true, if the selected collection is dropped successfully otherwise it will return false
 
-# Commands about Document
+## Commands about Document
 
