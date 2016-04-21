@@ -14,13 +14,10 @@
 1. Create Database use the command `use`
 
     `use DATABASE_NAME`
-
 2. Check your currently selected database use the command `db`
 3. Check your databases list, then use the command `show dbs`
-
 **Note:** Your new created database is not present in list before you insert atleast one document into it.
 4. The command `db.dropDatabase()` is used to drop a existing database
-
 *Tips:* You need to switch to the database you want to delete first by using `use` command, then use `db.dropdatabase()` command to drop the choosed database.
 
 # Commands about Collection (As for tables in RMDB)
