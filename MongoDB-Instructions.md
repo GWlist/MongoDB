@@ -1,4 +1,4 @@
-# Start mongo
+## Start mongo
 
   I assume that you all put mongodb in your environment path, otherwise you need to go to the directory where you installed your mongo.
 
@@ -15,7 +15,9 @@
 
     `use DATABASE_NAME`
 2. Check your currently selected database use the command `db`
+
 3. Check your databases list, then use the command `show dbs`
+
 **Note:** Your new created database is not present in list before you insert atleast one document into it.
 4. The command `db.dropDatabase()` is used to drop a existing database
 *Tips:* You need to switch to the database you want to delete first by using `use` command, then use `db.dropdatabase()` command to drop the choosed database.
@@ -25,6 +27,7 @@
 1. MongoDB `db.createCollection(name, options)` is used to create collection.
   `use test`
   `db.createCollection("mycollection")`
+
 2. Check the created collection by using the command `show collections`
 **Note:** In mongodb you don't need to create collection. MongoDB creates collection automatically, when you insert some document.
 
