@@ -22,6 +22,15 @@
 4. The command `db.dropDatabase()` is used to drop a existing database
 
 *Tips:* You need to switch to the database you want to delete first by using `use` command, then use `db.dropdatabase()` command to drop the choosed database.
-5. 
+
+# Commands about Collection (As for tables in RMDB)
+
+1. MongoDB `db.createCollection(name, options)` is used to create collection.
+  `use test`
+  `db.createCollection("mycollection")`
+2. Check the created collection by using the command `show collections`
+**Note:** In mongodb you don't need to create collection. MongoDB creates collection automatically, when you insert some document.
+
+
 
 
