@@ -217,6 +217,16 @@
   WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
 
   ```
-4. Delete Document
+  
+  **Note:** By default mongodb will update only single document, to update multiple you need to set a paramter 'multi' to true.
+  
+  `db.glist.update({'location':'New York'},{$set:{'location':'Boston'}}, {multi:true})`
+  
+4. Replace the existing document with the new document passed in save() method.
 
+  `db.COLLECTION_NAME.save({_id:ObjectId(),NEW_DATA})`
 
+5. Delete Document
+
+  ** **_deletion criteria_** : (Optional) deletion criteria according to documents will be removed.
+ 
