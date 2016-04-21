@@ -17,3 +17,6 @@
 
 2. Check your currently selected database use the command `db`
 3. Check your databases list, then use the command `show dbs`
+
+**Note:** Your new created database is not present in list before you insert atleast one document into it.
+
