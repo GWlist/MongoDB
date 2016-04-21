@@ -228,5 +228,24 @@
 
 5. Delete Document
 
-  ** **_deletion criteria_** : (Optional) deletion criteria according to documents will be removed.
+  **_deletion criteria_ : (Optional) deletion criteria according to documents will be removed.
  
+    `db.COLLECTION_NAME.remove(DELLETION_CRITTERIA)`
+ 	
+  ** _justOne_: (Optional) if set to true or 1, then remove only one document.
+  
+    `db.COLLECTION_NAME.remove(DELETION_CRITERIA,1)`
+    
+  ** _remove all documents_: If you don't specify deletion criteria, then mongodb will delete whole documents from the collection. **This is equivalent of SQL's truncate command**.
+  
+    `db.glist.remove({'first_name':'Alison'})`  
+    
+    `db.glist.remove({'first_name':'Alison', 1})`
+    
+    `db.glist.remove()`
+    
+  ## Projection: Selecting only necessary data
+  
+  
+  
+  
