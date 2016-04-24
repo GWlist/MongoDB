@@ -1,5 +1,29 @@
 ## This is the data we have for now
 
+`use gwu`
+```
+
+db.createCollection("glist")
+{	
+	user_id: 0006,
+	phone_num: '202222226',
+	email: 'tt@gmail.com',
+	first_name: 'tt',
+	last_name: 'chang',
+	rating: 2,
+	items: [
+		{
+			item_name: 'Ice cream cupon',
+			price: 20,
+			number_sold: 1,
+			location: 'Washington DC',
+			delivery_info: 'UPS'
+		}
+	]
+	
+}
+
+```
 ```
 
 db.glist.insert(
