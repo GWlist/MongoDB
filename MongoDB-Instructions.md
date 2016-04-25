@@ -4,7 +4,7 @@
 
   * Open a command promt and input the following command 
     
-    `mongodb.exe --dbpath "D:\Software\MongoDB 3.0.2\data"`
+    `mongod.exe --dbpath "D:\Software\MongoDB 3.0.2\data"`
   * Open another command prompt and issue the following command 
    
     `mongo.exe`
